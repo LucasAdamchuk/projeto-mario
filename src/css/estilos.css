@@ -1,0 +1,138 @@
+body {
+    font-family: 'Poppins';
+}
+
+.cabecalho {
+    display: flex;/* deixa elementos um do lado do outro */
+    flex-direction: row; /* deixa os filhos em linha*/
+    justify-content: space-between; /*cloca o espaço entre os elementos*/
+    padding: 30px;
+    max-width: 1440px; /* seta uma largura maxima para a div*/
+    margin: 0 auto; /*para centralizar a div*/
+}
+
+.cabecalho .logo {
+    width: 65px;
+}
+
+.cabecalho .menu {
+    display: flex;
+    align-items: center; /*alinh itens verticalmente*/
+    height: 100%; /* deixa o espaço do cabecalho igual o do pai*/
+}
+
+.cabecalho nav li a {
+    font-weight: bold; /*dpeso da fonte ou seja destaque*/
+    color: #fff;
+    font-size: 25px;/*tamanho da fonte*/
+    padding: 10px 20px; /*os 10px equilave a encima e em baixo e o 20px e para os lado*/
+    border-radius: 50px; /*raio da borda, deixa elas arredondadas*/
+    transition: 0.2s; /* tempo para mudar a cor do menu para ficar mais suave*/
+}
+
+.cabecalho nav li a:hover {/*hover para dar o efeito de passar o mouse em cima*/
+    background-color: #d5011d;
+
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 132px); /*vh altura total da vizualização da tela, e o caalc faz um calculo para tirar o ramnho do menu e centralizar corretamente*/
+    padding: 0 30px 30px;
+}
+
+.container .imagem-titulo {
+    max-width: 500px;
+}
+
+.container .descricao {
+    color: #a8adb7;
+    width: 85%;
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+.container .botao-trailer {
+    background-color: #d5011d;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    transition: 0.5ms all ease-in-out; /*ease-in-out efeito quando passar o mouse*/
+}
+
+.container .botao-trailer:hover {
+    transform: scale(1.1); /*faz aumentar quando coloca o mouse no botao*/
+}
+
+.fundo-video {
+    position: absolute; /*tira o elemento do contexto atual como se fosse em uma nova folha*/
+    z-index: -1; /*posiciona um elemento no eixo z o eixo de produndidade com o -1 ele fica atras de td*/
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /*esconde o transbordo e some o scroll de rolagem que ficou nesse caso*/
+    display: flex;
+    justify-content: center;
+}
+
+.fundo-video .video {
+    height: 100vh;
+}
+
+.fundo-video::after{/*criar um elemento novo depois do fundo-video*/
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%);
+}
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 52, 50, 0.749);/*qundo quer que a cor tenha opacidade*/
+    visibility: hidden;
+}
+
+.conteudo-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border-radius: 5px;
+    gap: 15px; /*espaço entre os elementos*/
+}
+
+.fechar-modal {
+    background-color: #fff;
+    color: #f03a17;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    text-align: center; /*alinhar textos*/
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.modal iframe{
+    border-width: 0;
+    width: 640px;
+    height: 360px;
+}
+
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
